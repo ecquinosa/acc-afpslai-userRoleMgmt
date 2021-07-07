@@ -37,7 +37,7 @@ namespace accAfpslaiEmvUserRoleMgmt.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("AGUINALDO")]
         public string BranchIssue {
             get {
                 return ((string)(this["BranchIssue"]));

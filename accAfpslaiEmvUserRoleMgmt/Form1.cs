@@ -21,40 +21,110 @@ namespace accAfpslaiEmvUserRoleMgmt
         private static string MsgHeader = "User and Role Management";
         public static MiddleServerApi msa = null;
         public static user dcsUser = null;
+        public state formState = Form1.state.init;
+        private static int userId = 0;
+
+        public enum state
+        {
+            init = 0,            
+            edit
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            msa = new MiddleServerApi(Properties.Settings.Default.MiddleServerUrl, Properties.Settings.Default.BranchIssue, Properties.Settings.Default.ApiKey, MiddleServerApi.afpslaiEmvSystem.urm);
+            grid.AutoGenerateColumns = false;
+            msa = new MiddleServerApi(Properties.Settings.Default.MiddleServerUrl, Properties.Settings.Default.ApiKey, Properties.Settings.Default.BranchIssue, MiddleServerApi.afpslaiEmvSystem.urm);
 
-            accAfpslaiEmvLogIn.LogIN li = new accAfpslaiEmvLogIn.LogIN(Properties.Settings.Default.MiddleServerUrl, Properties.Settings.Default.BranchIssue, Properties.Settings.Default.ApiKey, MsgHeader);
+            accAfpslaiEmvLogIn.LogIN li = new accAfpslaiEmvLogIn.LogIN(Properties.Settings.Default.MiddleServerUrl, Properties.Settings.Default.ApiKey, Properties.Settings.Default.BranchIssue, MsgHeader);
             li.ShowDialog();
             if (li.IsSuccess)
             {
                 dcsUser = li.dcsUser;
                 msa.dcsUser = li.dcsUser;
-                BindUsers();
+                BindGrid();
+                PopulateRoles();
+                cboStatus.SelectedIndex = 1;
             }
             else Environment.Exit(0);
         }
 
-        private void BindUsers()
+        private void BindGrid()
         {
             object obj = null;           
             if (msa.GetTable(MiddleServerApi.msApi.getSystemUser, ref obj))
             {
-                var users = Newtonsoft.Json.JsonConvert.DeserializeObject<List<system_user>>(obj.ToString());
-                //printTypes.Insert(0, new print_type { id = 0, printType = "-Select-" });
-                //cbo.DataSource = printTypes;
-                //cbo.DisplayMember = "printType";
-                //cbo.ValueMember = "id";
-                //cbo.SelectedIndex = 0;
-                grid.DataSource = users.ToList();
+                 var users = Newtonsoft.Json.JsonConvert.DeserializeObject<List<user>>(obj.ToString());
+                
+                if (!chkDeleted.Checked && !chkStatus.Checked) grid.DataSource = users.Where(o => o.is_deleted == false && o.status != "Not active").ToList();          
+                else if (chkDeleted.Checked && !chkStatus.Checked)
+                {
+                    var revised = users.Where(o => o.status != "Not active");
+                    grid.DataSource = revised.ToList();
+                }
+                else if (!chkDeleted.Checked && chkStatus.Checked)
+                {
+                    var revised = users.Where(o => o.is_deleted == false);
+                    grid.DataSource = revised.ToList();
+
+                }
+                else if (chkDeleted.Checked && chkStatus.Checked)
+                {
+                    var revised = users;
+                    grid.DataSource = revised.ToList();
+                }
             }
+        }
+
+        private void PopulateRoles()
+        {
+            object obj = null;
+            if (msa.GetTable(MiddleServerApi.msApi.getRole, ref obj))
+            {
+                var roles = Newtonsoft.Json.JsonConvert.DeserializeObject<List<system_role>>(obj.ToString());
+                roles.Insert(0, new system_role { id = 0, role = "-Select-" });
+                cboRole.DataSource = roles;
+                cboRole.DisplayMember = "role";
+                cboRole.ValueMember = "id";
+                cboRole.SelectedIndex = 0;                
+            }
+        }
+
+        private void ResetForm()
+        {
+            userId = 0;
+            txtUsername.Clear();
+            txtFirst.Clear();
+            txtMiddle.Clear();
+            txtLast.Clear();
+            txtSuffix.Clear();
+            cboRole.SelectedIndex = 0;
+            cboStatus.SelectedIndex = 1;
+            btnAdd.Text = "ADD";
+            btnEdit.Text = "EDIT";
+            btnDelete.Visible = true;
+            btnResetPass.Visible = true;
+            formState = state.init;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
+            if (ValidateFields())
+            {
+                system_user user = new system_user();
+                user.id = userId;
+                user.user_name = txtUsername.Text;
+                user.first_name = txtFirst.Text;
+                user.middle_name = txtMiddle.Text;
+                user.last_name = txtLast.Text;
+                user.suffix = txtSuffix.Text;
+                user.role_id = (int)cboRole.SelectedValue;
+                user.status = cboStatus.Text.Trim();
+                if (msa.addEditUser(user))
+                {
+                    BindGrid();
+                    ResetForm();                    
+                }
+            }
         }
         private bool ValidateFields()
         {
@@ -73,5 +143,56 @@ namespace accAfpslaiEmvUserRoleMgmt
             }
         }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(grid.Rows[grid.CurrentRow.Index].Cells[0].Value.ToString().Trim());
+            string userName = grid.Rows[grid.CurrentRow.Index].Cells[1].Value.ToString().Trim();
+            if (MessageBox.Show("Are you sure you want to delete '" + userName + "'?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                system_user user = new system_user();
+                user.id = id;
+                if(msa.addDeleteGenericTable(user, false)) BindGrid();
+            }
+        }
+
+        private void chkStatus_CheckedChanged(object sender, EventArgs e)
+        {
+            BindGrid();
+        }
+
+        private void chkDeleted_CheckedChanged(object sender, EventArgs e)
+        {
+            BindGrid();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (formState == state.init)
+            {
+                formState = state.edit;
+                userId = Convert.ToInt32(grid.Rows[grid.CurrentRow.Index].Cells[0].Value.ToString().Trim());
+                txtUsername.Text = grid.Rows[grid.CurrentRow.Index].Cells[1].Value.ToString().Trim();
+                txtFirst.Text = grid.Rows[grid.CurrentRow.Index].Cells[2].Value.ToString().Trim();
+                if (grid.Rows[grid.CurrentRow.Index].Cells[3].Value != null) txtMiddle.Text = grid.Rows[grid.CurrentRow.Index].Cells[3].Value.ToString().Trim();
+                txtLast.Text = grid.Rows[grid.CurrentRow.Index].Cells[4].Value.ToString().Trim();
+                if(grid.Rows[grid.CurrentRow.Index].Cells[5].Value!=null)txtSuffix.Text = grid.Rows[grid.CurrentRow.Index].Cells[5].Value.ToString().Trim();
+                cboRole.SelectedIndex = cboRole.FindString(grid.Rows[grid.CurrentRow.Index].Cells[7].Value.ToString().Trim());
+                cboStatus.SelectedIndex = cboStatus.FindString(grid.Rows[grid.CurrentRow.Index].Cells[8].Value.ToString().Trim());
+
+                btnAdd.Text = "SAVE";
+                btnEdit.Text = "CANCEL";
+                btnDelete.Visible = false;
+                btnResetPass.Visible = false;
+            }
+            else
+            {                           
+                ResetForm();
+            }
+        }
+
+        private void btnResetPass_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
