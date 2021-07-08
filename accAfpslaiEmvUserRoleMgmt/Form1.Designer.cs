@@ -29,20 +29,33 @@ namespace accAfpslaiEmvUserRoleMgmt
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnAdd = new System.Windows.Forms.Button();
             this.cboRole = new System.Windows.Forms.ComboBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.grid = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MiddleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Suffix = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoleDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.is_deleted = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.txtFirst = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -56,27 +69,22 @@ namespace accAfpslaiEmvUserRoleMgmt
             this.cboStatus = new System.Windows.Forms.ComboBox();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btnResetPass = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chkStatus = new System.Windows.Forms.CheckBox();
             this.chkDeleted = new System.Windows.Forms.CheckBox();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MiddleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Suffix = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoleDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.is_deleted = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(11, 580);
+            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdd.ImageIndex = 0;
+            this.btnAdd.ImageList = this.imageList1;
+            this.btnAdd.Location = new System.Drawing.Point(10, 387);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(116, 41);
             this.btnAdd.TabIndex = 0;
@@ -111,6 +119,8 @@ namespace accAfpslaiEmvUserRoleMgmt
             // 
             // grid
             // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.grid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -132,8 +142,117 @@ namespace accAfpslaiEmvUserRoleMgmt
             this.grid.ReadOnly = true;
             this.grid.RowHeadersWidth = 51;
             this.grid.RowTemplate.Height = 24;
-            this.grid.Size = new System.Drawing.Size(805, 507);
+            this.grid.Size = new System.Drawing.Size(805, 554);
             this.grid.TabIndex = 4;
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "userId";
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Id.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 51;
+            // 
+            // Username
+            // 
+            this.Username.DataPropertyName = "userName";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Username.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Username.HeaderText = "Username";
+            this.Username.MinimumWidth = 6;
+            this.Username.Name = "Username";
+            this.Username.ReadOnly = true;
+            this.Username.Width = 107;
+            // 
+            // FirstName
+            // 
+            this.FirstName.DataPropertyName = "firstName";
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FirstName.DefaultCellStyle = dataGridViewCellStyle4;
+            this.FirstName.HeaderText = "First";
+            this.FirstName.MinimumWidth = 6;
+            this.FirstName.Name = "FirstName";
+            this.FirstName.ReadOnly = true;
+            this.FirstName.Width = 68;
+            // 
+            // MiddleName
+            // 
+            this.MiddleName.DataPropertyName = "middleName";
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MiddleName.DefaultCellStyle = dataGridViewCellStyle5;
+            this.MiddleName.HeaderText = "Middle";
+            this.MiddleName.MinimumWidth = 6;
+            this.MiddleName.Name = "MiddleName";
+            this.MiddleName.ReadOnly = true;
+            this.MiddleName.Width = 80;
+            // 
+            // LastName
+            // 
+            this.LastName.DataPropertyName = "lastName";
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LastName.DefaultCellStyle = dataGridViewCellStyle6;
+            this.LastName.HeaderText = "Last";
+            this.LastName.MinimumWidth = 6;
+            this.LastName.Name = "LastName";
+            this.LastName.ReadOnly = true;
+            this.LastName.Width = 67;
+            // 
+            // Suffix
+            // 
+            this.Suffix.DataPropertyName = "suffix";
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Suffix.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Suffix.HeaderText = "Suffix";
+            this.Suffix.MinimumWidth = 6;
+            this.Suffix.Name = "Suffix";
+            this.Suffix.ReadOnly = true;
+            this.Suffix.Width = 78;
+            // 
+            // RoleId
+            // 
+            this.RoleId.DataPropertyName = "roleId";
+            this.RoleId.HeaderText = "RoleId";
+            this.RoleId.MinimumWidth = 6;
+            this.RoleId.Name = "RoleId";
+            this.RoleId.ReadOnly = true;
+            this.RoleId.Visible = false;
+            this.RoleId.Width = 81;
+            // 
+            // RoleDesc
+            // 
+            this.RoleDesc.DataPropertyName = "roleDesc";
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RoleDesc.DefaultCellStyle = dataGridViewCellStyle8;
+            this.RoleDesc.HeaderText = "Role";
+            this.RoleDesc.MinimumWidth = 6;
+            this.RoleDesc.Name = "RoleDesc";
+            this.RoleDesc.ReadOnly = true;
+            this.RoleDesc.Width = 67;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "status";
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Status.DefaultCellStyle = dataGridViewCellStyle9;
+            this.Status.HeaderText = "Status";
+            this.Status.MinimumWidth = 6;
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            this.Status.Width = 84;
+            // 
+            // is_deleted
+            // 
+            this.is_deleted.DataPropertyName = "is_deleted";
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.is_deleted.DefaultCellStyle = dataGridViewCellStyle10;
+            this.is_deleted.HeaderText = "Deleted";
+            this.is_deleted.MinimumWidth = 6;
+            this.is_deleted.Name = "is_deleted";
+            this.is_deleted.ReadOnly = true;
+            this.is_deleted.Width = 90;
             // 
             // label2
             // 
@@ -232,7 +351,10 @@ namespace accAfpslaiEmvUserRoleMgmt
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(133, 580);
+            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEdit.ImageIndex = 1;
+            this.btnEdit.ImageList = this.imageList1;
+            this.btnEdit.Location = new System.Drawing.Point(132, 387);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(116, 41);
             this.btnEdit.TabIndex = 16;
@@ -243,20 +365,34 @@ namespace accAfpslaiEmvUserRoleMgmt
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(496, 580);
+            this.btnDelete.BackColor = System.Drawing.SystemColors.Control;
+            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDelete.ImageIndex = 3;
+            this.btnDelete.ImageList = this.imageList1;
+            this.btnDelete.Location = new System.Drawing.Point(254, 387);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(116, 41);
             this.btnDelete.TabIndex = 17;
             this.btnDelete.Text = "DELETE";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "add.png");
+            this.imageList1.Images.SetKeyName(1, "edit.png");
+            this.imageList1.Images.SetKeyName(2, "save.png");
+            this.imageList1.Images.SetKeyName(3, "cancel.png");
             // 
             // btnResetPass
             // 
-            this.btnResetPass.Location = new System.Drawing.Point(618, 580);
+            this.btnResetPass.Location = new System.Drawing.Point(12, 434);
             this.btnResetPass.Name = "btnResetPass";
-            this.btnResetPass.Size = new System.Drawing.Size(162, 41);
+            this.btnResetPass.Size = new System.Drawing.Size(358, 41);
             this.btnResetPass.TabIndex = 18;
             this.btnResetPass.Text = "RESET PASSWORD";
             this.btnResetPass.UseVisualStyleBackColor = true;
@@ -307,120 +443,22 @@ namespace accAfpslaiEmvUserRoleMgmt
             this.chkDeleted.UseVisualStyleBackColor = true;
             this.chkDeleted.CheckedChanged += new System.EventHandler(this.chkDeleted_CheckedChanged);
             // 
-            // Id
+            // panel1
             // 
-            this.Id.DataPropertyName = "userId";
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Id.DefaultCellStyle = dataGridViewCellStyle10;
-            this.Id.HeaderText = "Id";
-            this.Id.MinimumWidth = 6;
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Width = 51;
-            // 
-            // Username
-            // 
-            this.Username.DataPropertyName = "userName";
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Username.DefaultCellStyle = dataGridViewCellStyle11;
-            this.Username.HeaderText = "Username";
-            this.Username.MinimumWidth = 6;
-            this.Username.Name = "Username";
-            this.Username.ReadOnly = true;
-            this.Username.Width = 107;
-            // 
-            // FirstName
-            // 
-            this.FirstName.DataPropertyName = "firstName";
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FirstName.DefaultCellStyle = dataGridViewCellStyle12;
-            this.FirstName.HeaderText = "First";
-            this.FirstName.MinimumWidth = 6;
-            this.FirstName.Name = "FirstName";
-            this.FirstName.ReadOnly = true;
-            this.FirstName.Width = 68;
-            // 
-            // MiddleName
-            // 
-            this.MiddleName.DataPropertyName = "middleName";
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MiddleName.DefaultCellStyle = dataGridViewCellStyle13;
-            this.MiddleName.HeaderText = "Middle";
-            this.MiddleName.MinimumWidth = 6;
-            this.MiddleName.Name = "MiddleName";
-            this.MiddleName.ReadOnly = true;
-            this.MiddleName.Width = 80;
-            // 
-            // LastName
-            // 
-            this.LastName.DataPropertyName = "lastName";
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LastName.DefaultCellStyle = dataGridViewCellStyle14;
-            this.LastName.HeaderText = "Last";
-            this.LastName.MinimumWidth = 6;
-            this.LastName.Name = "LastName";
-            this.LastName.ReadOnly = true;
-            this.LastName.Width = 67;
-            // 
-            // Suffix
-            // 
-            this.Suffix.DataPropertyName = "suffix";
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Suffix.DefaultCellStyle = dataGridViewCellStyle15;
-            this.Suffix.HeaderText = "Suffix";
-            this.Suffix.MinimumWidth = 6;
-            this.Suffix.Name = "Suffix";
-            this.Suffix.ReadOnly = true;
-            this.Suffix.Width = 78;
-            // 
-            // RoleId
-            // 
-            this.RoleId.DataPropertyName = "roleId";
-            this.RoleId.HeaderText = "RoleId";
-            this.RoleId.MinimumWidth = 6;
-            this.RoleId.Name = "RoleId";
-            this.RoleId.ReadOnly = true;
-            this.RoleId.Visible = false;
-            this.RoleId.Width = 81;
-            // 
-            // RoleDesc
-            // 
-            this.RoleDesc.DataPropertyName = "roleDesc";
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RoleDesc.DefaultCellStyle = dataGridViewCellStyle16;
-            this.RoleDesc.HeaderText = "Role";
-            this.RoleDesc.MinimumWidth = 6;
-            this.RoleDesc.Name = "RoleDesc";
-            this.RoleDesc.ReadOnly = true;
-            this.RoleDesc.Width = 67;
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "status";
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Status.DefaultCellStyle = dataGridViewCellStyle17;
-            this.Status.HeaderText = "Status";
-            this.Status.MinimumWidth = 6;
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            this.Status.Width = 84;
-            // 
-            // is_deleted
-            // 
-            this.is_deleted.DataPropertyName = "is_deleted";
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.is_deleted.DefaultCellStyle = dataGridViewCellStyle18;
-            this.is_deleted.HeaderText = "Deleted";
-            this.is_deleted.MinimumWidth = 6;
-            this.is_deleted.Name = "is_deleted";
-            this.is_deleted.ReadOnly = true;
-            this.is_deleted.Width = 90;
+            this.panel1.BackColor = System.Drawing.Color.DarkGreen;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1314, 34);
+            this.panel1.TabIndex = 22;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1314, 633);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.chkDeleted);
             this.Controls.Add(this.chkStatus);
             this.Controls.Add(this.groupBox1);
@@ -476,6 +514,8 @@ namespace accAfpslaiEmvUserRoleMgmt
         private System.Windows.Forms.DataGridViewTextBoxColumn RoleDesc;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn is_deleted;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
 

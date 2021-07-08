@@ -17,8 +17,7 @@ namespace accAfpslaiEmvUserRoleMgmt
         {
             InitializeComponent();
         }
-
-        private static string MsgHeader = "User and Role Management";
+        
         public static MiddleServerApi msa = null;
         public static user dcsUser = null;
         public state formState = Form1.state.init;
@@ -26,7 +25,7 @@ namespace accAfpslaiEmvUserRoleMgmt
 
         public enum state
         {
-            init = 0,            
+            init = 0,
             edit
         }
 
@@ -35,43 +34,60 @@ namespace accAfpslaiEmvUserRoleMgmt
             grid.AutoGenerateColumns = false;
             msa = new MiddleServerApi(Properties.Settings.Default.MiddleServerUrl, Properties.Settings.Default.ApiKey, Properties.Settings.Default.BranchIssue, MiddleServerApi.afpslaiEmvSystem.urm);
 
-            accAfpslaiEmvLogIn.LogIN li = new accAfpslaiEmvLogIn.LogIN(Properties.Settings.Default.MiddleServerUrl, Properties.Settings.Default.ApiKey, Properties.Settings.Default.BranchIssue, MsgHeader);
+            //accAfpslaiEmvLogIn.LogIN li = new accAfpslaiEmvLogIn.LogIN(Properties.Settings.Default.MiddleServerUrl, Properties.Settings.Default.ApiKey, Properties.Settings.Default.BranchIssue, MsgHeader);
+            accAfpslaiEmvLogIn.LogIN li = new accAfpslaiEmvLogIn.LogIN(msa);
             li.ShowDialog();
             if (li.IsSuccess)
             {
                 dcsUser = li.dcsUser;
                 msa.dcsUser = li.dcsUser;
-                BindGrid();
-                PopulateRoles();
-                cboStatus.SelectedIndex = 1;
+                if (dcsUser.roleId == 2)
+                {
+                    BindGrid();
+                    PopulateRoles();
+                    cboStatus.SelectedIndex = 1;
+                }
+                else
+                {
+                    Utilities.ShowWarningMessage("User have no access to this application");
+                    Environment.Exit(0);
+                }
+
             }
             else Environment.Exit(0);
         }
 
+        private List<user> users = null;
+
         private void BindGrid()
         {
-            object obj = null;           
+            object obj = null;
             if (msa.GetTable(MiddleServerApi.msApi.getSystemUser, ref obj))
             {
-                 var users = Newtonsoft.Json.JsonConvert.DeserializeObject<List<user>>(obj.ToString());
-                
-                if (!chkDeleted.Checked && !chkStatus.Checked) grid.DataSource = users.Where(o => o.is_deleted == false && o.status != "Not active").ToList();          
-                else if (chkDeleted.Checked && !chkStatus.Checked)
-                {
-                    var revised = users.Where(o => o.status != "Not active");
-                    grid.DataSource = revised.ToList();
-                }
-                else if (!chkDeleted.Checked && chkStatus.Checked)
-                {
-                    var revised = users.Where(o => o.is_deleted == false);
-                    grid.DataSource = revised.ToList();
+                users = null;
+                users = Newtonsoft.Json.JsonConvert.DeserializeObject<List<user>>(obj.ToString());
+                grid.DataSource = users.Where(o => o.is_deleted == false && o.status != "Not active").ToList();
+            }
+        }
 
-                }
-                else if (chkDeleted.Checked && chkStatus.Checked)
-                {
-                    var revised = users;
-                    grid.DataSource = revised.ToList();
-                }
+        private void BindGrid2()
+        {
+            if (!chkDeleted.Checked && !chkStatus.Checked) grid.DataSource = users.Where(o => o.is_deleted == false && o.status != "Not active").ToList();
+            else if (chkDeleted.Checked && !chkStatus.Checked)
+            {
+                var revised = users.Where(o => o.status != "Not active");
+                grid.DataSource = revised.ToList();
+            }
+            else if (!chkDeleted.Checked && chkStatus.Checked)
+            {
+                var revised = users.Where(o => o.is_deleted == false);
+                grid.DataSource = revised.ToList();
+
+            }
+            else if (chkDeleted.Checked && chkStatus.Checked)
+            {
+                var revised = users;
+                grid.DataSource = revised.ToList();
             }
         }
 
@@ -85,7 +101,7 @@ namespace accAfpslaiEmvUserRoleMgmt
                 cboRole.DataSource = roles;
                 cboRole.DisplayMember = "role";
                 cboRole.ValueMember = "id";
-                cboRole.SelectedIndex = 0;                
+                cboRole.SelectedIndex = 0;
             }
         }
 
@@ -106,26 +122,6 @@ namespace accAfpslaiEmvUserRoleMgmt
             formState = state.init;
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            if (ValidateFields())
-            {
-                system_user user = new system_user();
-                user.id = userId;
-                user.user_name = txtUsername.Text;
-                user.first_name = txtFirst.Text;
-                user.middle_name = txtMiddle.Text;
-                user.last_name = txtLast.Text;
-                user.suffix = txtSuffix.Text;
-                user.role_id = (int)cboRole.SelectedValue;
-                user.status = cboStatus.Text.Trim();
-                if (msa.addEditUser(user))
-                {
-                    BindGrid();
-                    ResetForm();                    
-                }
-            }
-        }
         private bool ValidateFields()
         {
             StringBuilder sb = new StringBuilder();
@@ -142,6 +138,26 @@ namespace accAfpslaiEmvUserRoleMgmt
                 return false;
             }
         }
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (ValidateFields())
+            {
+                system_user user = new system_user();
+                user.id = userId;
+                user.user_name = txtUsername.Text;
+                user.first_name = txtFirst.Text;
+                user.middle_name = txtMiddle.Text;
+                user.last_name = txtLast.Text;
+                user.suffix = txtSuffix.Text;
+                user.role_id = (int)cboRole.SelectedValue;
+                user.status = cboStatus.Text.Trim();
+                if (msa.addEditUser(user))
+                {
+                    BindGrid();
+                    ResetForm();
+                }
+            }
+        }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -151,19 +167,9 @@ namespace accAfpslaiEmvUserRoleMgmt
             {
                 system_user user = new system_user();
                 user.id = id;
-                if(msa.addDeleteGenericTable(user, false)) BindGrid();
+                if (msa.addDeleteGenericTable(user, false)) BindGrid();
             }
-        }
-
-        private void chkStatus_CheckedChanged(object sender, EventArgs e)
-        {
-            BindGrid();
-        }
-
-        private void chkDeleted_CheckedChanged(object sender, EventArgs e)
-        {
-            BindGrid();
-        }
+        }       
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
@@ -175,7 +181,7 @@ namespace accAfpslaiEmvUserRoleMgmt
                 txtFirst.Text = grid.Rows[grid.CurrentRow.Index].Cells[2].Value.ToString().Trim();
                 if (grid.Rows[grid.CurrentRow.Index].Cells[3].Value != null) txtMiddle.Text = grid.Rows[grid.CurrentRow.Index].Cells[3].Value.ToString().Trim();
                 txtLast.Text = grid.Rows[grid.CurrentRow.Index].Cells[4].Value.ToString().Trim();
-                if(grid.Rows[grid.CurrentRow.Index].Cells[5].Value!=null)txtSuffix.Text = grid.Rows[grid.CurrentRow.Index].Cells[5].Value.ToString().Trim();
+                if (grid.Rows[grid.CurrentRow.Index].Cells[5].Value != null) txtSuffix.Text = grid.Rows[grid.CurrentRow.Index].Cells[5].Value.ToString().Trim();
                 cboRole.SelectedIndex = cboRole.FindString(grid.Rows[grid.CurrentRow.Index].Cells[7].Value.ToString().Trim());
                 cboStatus.SelectedIndex = cboStatus.FindString(grid.Rows[grid.CurrentRow.Index].Cells[8].Value.ToString().Trim());
 
@@ -185,14 +191,31 @@ namespace accAfpslaiEmvUserRoleMgmt
                 btnResetPass.Visible = false;
             }
             else
-            {                           
+            {
                 ResetForm();
             }
         }
 
         private void btnResetPass_Click(object sender, EventArgs e)
         {
+            int id = Convert.ToInt32(grid.Rows[grid.CurrentRow.Index].Cells[0].Value.ToString().Trim());
+            string userName = grid.Rows[grid.CurrentRow.Index].Cells[1].Value.ToString().Trim();
+            if (MessageBox.Show("Are you sure you want to reset password of '" + userName + "'?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                system_user user = new system_user();
+                user.id = id;
+                if (msa.resetUserPassword(user)) BindGrid();
+            }
+        }
 
+        private void chkStatus_CheckedChanged(object sender, EventArgs e)
+        {
+            BindGrid2();
+        }
+
+        private void chkDeleted_CheckedChanged(object sender, EventArgs e)
+        {
+            BindGrid2();
         }
     }
 }
