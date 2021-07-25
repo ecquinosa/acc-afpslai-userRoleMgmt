@@ -16,6 +16,11 @@ namespace accAfpslaiEmvUserRoleMgmt
         public Form1()
         {
             InitializeComponent();
+
+            txtFirst.KeyPress += textBox1_KeyPress;
+            txtMiddle.KeyPress += textBox1_KeyPress;
+            txtLast.KeyPress += textBox1_KeyPress;
+            txtSuffix.KeyPress += textBox1_KeyPress;
         }
         
         public static MiddleServerApi msa = null;
@@ -39,9 +44,9 @@ namespace accAfpslaiEmvUserRoleMgmt
             li.ShowDialog();
             if (li.IsSuccess)
             {
-                dcsUser = li.dcsUser;
-                msa.dcsUser = li.dcsUser;
-                if (dcsUser.roleId == 2)
+                //dcsUser = li.dcsUser;
+                //msa.dcsUser = li.dcsUser;
+                if (msa.dcsUser.roleId == 2)
                 {
                     BindGrid();
                     PopulateRoles();
@@ -131,6 +136,15 @@ namespace accAfpslaiEmvUserRoleMgmt
             if (cboRole.SelectedIndex == 0) sb.AppendLine("Please select Role");
             if (cboStatus.SelectedIndex == 0) sb.AppendLine("Please select Status");
 
+            if (txtUsername.Text.Length < 3) sb.AppendLine("Please enter valid Username");
+            
+            //System.Text.RegularExpressions.Regex r1 = new System.Text.RegularExpressions.Regex("^[a-zA-Z0-9]*$");
+            //System.Text.RegularExpressions.Regex r2 = new System.Text.RegularExpressions.Regex(@"^[\.a-zA-Z0-9,!? ]*$");
+            //if (r1.IsMatch(txtFirst.Text)) sb.AppendLine("Alphanumeric is not allowed in First name");
+            //if (r2.IsMatch(txtMiddle.Text)) sb.AppendLine("Alphanumeric is not allowed in Middle name");
+            //if (r2.IsMatch(txtLast.Text)) sb.AppendLine("Alphanumeric is not allowed in Last name");
+            //if (r2.IsMatch(txtSuffix.Text)) sb.AppendLine("Alphanumeric is not allowed in Suffix");
+
             if (sb.ToString() == "") return true;
             else
             {
@@ -216,6 +230,11 @@ namespace accAfpslaiEmvUserRoleMgmt
         private void chkDeleted_CheckedChanged(object sender, EventArgs e)
         {
             BindGrid2();
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space || e.KeyChar == (char)'-');
         }
     }
 }

@@ -36,3 +36,22 @@ D:\WORK\Projects\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\obj\Debug\ac
 D:\WORK\Projects\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\obj\Debug\accAfpslaiEmvUserRoleMgmt.csproj.CopyComplete
 D:\WORK\Projects\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\obj\Debug\accAfpslaiEmvUserRoleMgmt.exe
 D:\WORK\Projects\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\obj\Debug\accAfpslaiEmvUserRoleMgmt.pdb
+C:\Drive D\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\bin\Debug\accAfpslaiEmvUserRoleMgmt.exe.config
+C:\Drive D\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\bin\Debug\accAfpslaiEmvUserRoleMgmt.exe
+C:\Drive D\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\bin\Debug\accAfpslaiEmvUserRoleMgmt.pdb
+C:\Drive D\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\bin\Debug\accAfpslaiEmvLogIn.dll
+C:\Drive D\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\bin\Debug\accAfpslaiEmvObjct.dll
+C:\Drive D\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\bin\Debug\Newtonsoft.Json.dll
+C:\Drive D\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\bin\Debug\accAfpslaiEmvEncDec.dll
+C:\Drive D\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\bin\Debug\accAfpslaiEmvLogIn.pdb
+C:\Drive D\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\bin\Debug\accAfpslaiEmvObjct.pdb
+C:\Drive D\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\bin\Debug\Newtonsoft.Json.xml
+C:\Drive D\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\bin\Debug\accAfpslaiEmvEncDec.pdb
+C:\Drive D\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\obj\Debug\accAfpslaiEmvUserRoleMgmt.csproj.AssemblyReference.cache
+C:\Drive D\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\obj\Debug\accAfpslaiEmvUserRoleMgmt.Form1.resources
+C:\Drive D\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\obj\Debug\accAfpslaiEmvUserRoleMgmt.Properties.Resources.resources
+C:\Drive D\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\obj\Debug\accAfpslaiEmvUserRoleMgmt.csproj.GenerateResource.cache
+C:\Drive D\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\obj\Debug\accAfpslaiEmvUserRoleMgmt.csproj.CoreCompileInputs.cache
+C:\Drive D\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\obj\Debug\accAfpslaiEmvUserRoleMgmt.csproj.CopyComplete
+C:\Drive D\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\obj\Debug\accAfpslaiEmvUserRoleMgmt.exe
+C:\Drive D\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\obj\Debug\accAfpslaiEmvUserRoleMgmt.pdb

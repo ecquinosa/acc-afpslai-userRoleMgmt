@@ -30,18 +30,19 @@ namespace accAfpslaiEmvUserRoleMgmt
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.cboRole = new System.Windows.Forms.ComboBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -69,7 +70,6 @@ namespace accAfpslaiEmvUserRoleMgmt
             this.cboStatus = new System.Windows.Forms.ComboBox();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btnResetPass = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chkStatus = new System.Windows.Forms.CheckBox();
@@ -84,17 +84,27 @@ namespace accAfpslaiEmvUserRoleMgmt
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdd.ImageIndex = 0;
             this.btnAdd.ImageList = this.imageList1;
-            this.btnAdd.Location = new System.Drawing.Point(10, 387);
+            this.btnAdd.Location = new System.Drawing.Point(12, 387);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(116, 41);
+            this.btnAdd.Size = new System.Drawing.Size(99, 41);
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "ADD";
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "add.png");
+            this.imageList1.Images.SetKeyName(1, "edit.png");
+            this.imageList1.Images.SetKeyName(2, "save.png");
+            this.imageList1.Images.SetKeyName(3, "cancel.png");
+            // 
             // cboRole
             // 
+            this.cboRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboRole.FormattingEnabled = true;
             this.cboRole.Location = new System.Drawing.Point(135, 231);
             this.cboRole.Name = "cboRole";
@@ -119,8 +129,8 @@ namespace accAfpslaiEmvUserRoleMgmt
             // 
             // grid
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
             this.grid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -148,8 +158,8 @@ namespace accAfpslaiEmvUserRoleMgmt
             // Id
             // 
             this.Id.DataPropertyName = "userId";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Id.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Id.DefaultCellStyle = dataGridViewCellStyle22;
             this.Id.HeaderText = "Id";
             this.Id.MinimumWidth = 6;
             this.Id.Name = "Id";
@@ -159,8 +169,8 @@ namespace accAfpslaiEmvUserRoleMgmt
             // Username
             // 
             this.Username.DataPropertyName = "userName";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Username.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Username.DefaultCellStyle = dataGridViewCellStyle23;
             this.Username.HeaderText = "Username";
             this.Username.MinimumWidth = 6;
             this.Username.Name = "Username";
@@ -170,8 +180,8 @@ namespace accAfpslaiEmvUserRoleMgmt
             // FirstName
             // 
             this.FirstName.DataPropertyName = "firstName";
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FirstName.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FirstName.DefaultCellStyle = dataGridViewCellStyle24;
             this.FirstName.HeaderText = "First";
             this.FirstName.MinimumWidth = 6;
             this.FirstName.Name = "FirstName";
@@ -181,8 +191,8 @@ namespace accAfpslaiEmvUserRoleMgmt
             // MiddleName
             // 
             this.MiddleName.DataPropertyName = "middleName";
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MiddleName.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MiddleName.DefaultCellStyle = dataGridViewCellStyle25;
             this.MiddleName.HeaderText = "Middle";
             this.MiddleName.MinimumWidth = 6;
             this.MiddleName.Name = "MiddleName";
@@ -192,8 +202,8 @@ namespace accAfpslaiEmvUserRoleMgmt
             // LastName
             // 
             this.LastName.DataPropertyName = "lastName";
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LastName.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LastName.DefaultCellStyle = dataGridViewCellStyle26;
             this.LastName.HeaderText = "Last";
             this.LastName.MinimumWidth = 6;
             this.LastName.Name = "LastName";
@@ -203,8 +213,8 @@ namespace accAfpslaiEmvUserRoleMgmt
             // Suffix
             // 
             this.Suffix.DataPropertyName = "suffix";
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Suffix.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Suffix.DefaultCellStyle = dataGridViewCellStyle27;
             this.Suffix.HeaderText = "Suffix";
             this.Suffix.MinimumWidth = 6;
             this.Suffix.Name = "Suffix";
@@ -224,8 +234,8 @@ namespace accAfpslaiEmvUserRoleMgmt
             // RoleDesc
             // 
             this.RoleDesc.DataPropertyName = "roleDesc";
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RoleDesc.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RoleDesc.DefaultCellStyle = dataGridViewCellStyle28;
             this.RoleDesc.HeaderText = "Role";
             this.RoleDesc.MinimumWidth = 6;
             this.RoleDesc.Name = "RoleDesc";
@@ -235,8 +245,8 @@ namespace accAfpslaiEmvUserRoleMgmt
             // Status
             // 
             this.Status.DataPropertyName = "status";
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Status.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Status.DefaultCellStyle = dataGridViewCellStyle29;
             this.Status.HeaderText = "Status";
             this.Status.MinimumWidth = 6;
             this.Status.Name = "Status";
@@ -246,8 +256,8 @@ namespace accAfpslaiEmvUserRoleMgmt
             // is_deleted
             // 
             this.is_deleted.DataPropertyName = "is_deleted";
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.is_deleted.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.is_deleted.DefaultCellStyle = dataGridViewCellStyle30;
             this.is_deleted.HeaderText = "Deleted";
             this.is_deleted.MinimumWidth = 6;
             this.is_deleted.Name = "is_deleted";
@@ -269,6 +279,7 @@ namespace accAfpslaiEmvUserRoleMgmt
             this.txtFirst.Name = "txtFirst";
             this.txtFirst.Size = new System.Drawing.Size(311, 23);
             this.txtFirst.TabIndex = 5;
+            this.txtFirst.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label3
             // 
@@ -338,6 +349,7 @@ namespace accAfpslaiEmvUserRoleMgmt
             // 
             // cboStatus
             // 
+            this.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboStatus.FormattingEnabled = true;
             this.cboStatus.Items.AddRange(new object[] {
             "-Select-",
@@ -354,9 +366,9 @@ namespace accAfpslaiEmvUserRoleMgmt
             this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEdit.ImageIndex = 1;
             this.btnEdit.ImageList = this.imageList1;
-            this.btnEdit.Location = new System.Drawing.Point(132, 387);
+            this.btnEdit.Location = new System.Drawing.Point(117, 387);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(116, 41);
+            this.btnEdit.Size = new System.Drawing.Size(99, 41);
             this.btnEdit.TabIndex = 16;
             this.btnEdit.Text = "EDIT";
             this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -370,29 +382,20 @@ namespace accAfpslaiEmvUserRoleMgmt
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDelete.ImageIndex = 3;
             this.btnDelete.ImageList = this.imageList1;
-            this.btnDelete.Location = new System.Drawing.Point(254, 387);
+            this.btnDelete.Location = new System.Drawing.Point(222, 387);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(116, 41);
+            this.btnDelete.Size = new System.Drawing.Size(111, 41);
             this.btnDelete.TabIndex = 17;
             this.btnDelete.Text = "DELETE";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "add.png");
-            this.imageList1.Images.SetKeyName(1, "edit.png");
-            this.imageList1.Images.SetKeyName(2, "save.png");
-            this.imageList1.Images.SetKeyName(3, "cancel.png");
-            // 
             // btnResetPass
             // 
             this.btnResetPass.Location = new System.Drawing.Point(12, 434);
             this.btnResetPass.Name = "btnResetPass";
-            this.btnResetPass.Size = new System.Drawing.Size(358, 41);
+            this.btnResetPass.Size = new System.Drawing.Size(321, 41);
             this.btnResetPass.TabIndex = 18;
             this.btnResetPass.Text = "RESET PASSWORD";
             this.btnResetPass.UseVisualStyleBackColor = true;
