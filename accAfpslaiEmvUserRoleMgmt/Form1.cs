@@ -38,6 +38,7 @@ namespace accAfpslaiEmvUserRoleMgmt
         {
             grid.AutoGenerateColumns = false;
             msa = new MiddleServerApi(Properties.Settings.Default.MiddleServerUrl, Properties.Settings.Default.ApiKey, Properties.Settings.Default.BranchIssue, MiddleServerApi.afpslaiEmvSystem.urm);
+            linkLabel1.Text = Properties.Settings.Default.MiddleServerUrl;
 
             //accAfpslaiEmvLogIn.LogIN li = new accAfpslaiEmvLogIn.LogIN(Properties.Settings.Default.MiddleServerUrl, Properties.Settings.Default.ApiKey, Properties.Settings.Default.BranchIssue, MsgHeader);
             accAfpslaiEmvLogIn.LogIN li = new accAfpslaiEmvLogIn.LogIN(msa);

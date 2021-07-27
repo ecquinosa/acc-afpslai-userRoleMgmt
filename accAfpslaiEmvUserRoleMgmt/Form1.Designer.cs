@@ -31,16 +31,16 @@ namespace accAfpslaiEmvUserRoleMgmt
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAdd = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.cboRole = new System.Windows.Forms.ComboBox();
@@ -75,6 +75,7 @@ namespace accAfpslaiEmvUserRoleMgmt
             this.chkStatus = new System.Windows.Forms.CheckBox();
             this.chkDeleted = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -129,8 +130,8 @@ namespace accAfpslaiEmvUserRoleMgmt
             // 
             // grid
             // 
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.grid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -158,8 +159,8 @@ namespace accAfpslaiEmvUserRoleMgmt
             // Id
             // 
             this.Id.DataPropertyName = "userId";
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Id.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Id.DefaultCellStyle = dataGridViewCellStyle2;
             this.Id.HeaderText = "Id";
             this.Id.MinimumWidth = 6;
             this.Id.Name = "Id";
@@ -169,8 +170,8 @@ namespace accAfpslaiEmvUserRoleMgmt
             // Username
             // 
             this.Username.DataPropertyName = "userName";
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Username.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Username.DefaultCellStyle = dataGridViewCellStyle3;
             this.Username.HeaderText = "Username";
             this.Username.MinimumWidth = 6;
             this.Username.Name = "Username";
@@ -180,8 +181,8 @@ namespace accAfpslaiEmvUserRoleMgmt
             // FirstName
             // 
             this.FirstName.DataPropertyName = "firstName";
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FirstName.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FirstName.DefaultCellStyle = dataGridViewCellStyle4;
             this.FirstName.HeaderText = "First";
             this.FirstName.MinimumWidth = 6;
             this.FirstName.Name = "FirstName";
@@ -191,8 +192,8 @@ namespace accAfpslaiEmvUserRoleMgmt
             // MiddleName
             // 
             this.MiddleName.DataPropertyName = "middleName";
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MiddleName.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MiddleName.DefaultCellStyle = dataGridViewCellStyle5;
             this.MiddleName.HeaderText = "Middle";
             this.MiddleName.MinimumWidth = 6;
             this.MiddleName.Name = "MiddleName";
@@ -202,8 +203,8 @@ namespace accAfpslaiEmvUserRoleMgmt
             // LastName
             // 
             this.LastName.DataPropertyName = "lastName";
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LastName.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LastName.DefaultCellStyle = dataGridViewCellStyle6;
             this.LastName.HeaderText = "Last";
             this.LastName.MinimumWidth = 6;
             this.LastName.Name = "LastName";
@@ -213,8 +214,8 @@ namespace accAfpslaiEmvUserRoleMgmt
             // Suffix
             // 
             this.Suffix.DataPropertyName = "suffix";
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Suffix.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Suffix.DefaultCellStyle = dataGridViewCellStyle7;
             this.Suffix.HeaderText = "Suffix";
             this.Suffix.MinimumWidth = 6;
             this.Suffix.Name = "Suffix";
@@ -234,8 +235,8 @@ namespace accAfpslaiEmvUserRoleMgmt
             // RoleDesc
             // 
             this.RoleDesc.DataPropertyName = "roleDesc";
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RoleDesc.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RoleDesc.DefaultCellStyle = dataGridViewCellStyle8;
             this.RoleDesc.HeaderText = "Role";
             this.RoleDesc.MinimumWidth = 6;
             this.RoleDesc.Name = "RoleDesc";
@@ -245,8 +246,8 @@ namespace accAfpslaiEmvUserRoleMgmt
             // Status
             // 
             this.Status.DataPropertyName = "status";
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Status.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Status.DefaultCellStyle = dataGridViewCellStyle9;
             this.Status.HeaderText = "Status";
             this.Status.MinimumWidth = 6;
             this.Status.Name = "Status";
@@ -256,8 +257,8 @@ namespace accAfpslaiEmvUserRoleMgmt
             // is_deleted
             // 
             this.is_deleted.DataPropertyName = "is_deleted";
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.is_deleted.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.is_deleted.DefaultCellStyle = dataGridViewCellStyle10;
             this.is_deleted.HeaderText = "Deleted";
             this.is_deleted.MinimumWidth = 6;
             this.is_deleted.Name = "is_deleted";
@@ -455,12 +456,24 @@ namespace accAfpslaiEmvUserRoleMgmt
             this.panel1.Size = new System.Drawing.Size(1314, 34);
             this.panel1.TabIndex = 22;
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(9, 607);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(96, 17);
+            this.linkLabel1.TabIndex = 23;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "API SOURCE";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1314, 633);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.chkDeleted);
             this.Controls.Add(this.chkStatus);
@@ -519,6 +532,7 @@ namespace accAfpslaiEmvUserRoleMgmt
         private System.Windows.Forms.DataGridViewTextBoxColumn is_deleted;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 
