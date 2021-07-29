@@ -237,5 +237,11 @@ namespace accAfpslaiEmvUserRoleMgmt
         {
             e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space || e.KeyChar == (char)'-');
         }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            BindGrid();
+            BindGrid2();
+        }
     }
 }
