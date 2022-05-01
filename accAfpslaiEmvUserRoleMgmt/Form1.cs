@@ -48,7 +48,7 @@ namespace accAfpslaiEmvUserRoleMgmt
                 //dcsUser = li.dcsUser;
                 //msa.dcsUser = li.dcsUser;
                 if (msa.dcsUser.roleId == 2)
-                {
+                {                    
                     BindGrid();
                     PopulateRoles();
                     cboStatus.SelectedIndex = 1;
@@ -124,20 +124,25 @@ namespace accAfpslaiEmvUserRoleMgmt
             btnAdd.Text = "ADD";
             btnEdit.Text = "EDIT";
             btnDelete.Visible = true;
+            btnReset.Visible = true;
             btnResetPass.Visible = true;
+            txtUsername.ReadOnly = false;
             formState = state.init;
+
+            btnAdd.ImageIndex = 0;
+            btnEdit.ImageIndex = 1;
         }
 
         private bool ValidateFields()
         {
             StringBuilder sb = new StringBuilder();
             if (txtUsername.Text == "") sb.AppendLine("Please enter Username");
+            else if (txtUsername.Text.Length < 3) sb.AppendLine("Please enter valid Username");
+
             if (txtFirst.Text == "") sb.AppendLine("Please enter First name");
             if (txtLast.Text == "") sb.AppendLine("Please enter Last name");
             if (cboRole.SelectedIndex == 0) sb.AppendLine("Please select Role");
-            if (cboStatus.SelectedIndex == 0) sb.AppendLine("Please select Status");
-
-            if (txtUsername.Text.Length < 3) sb.AppendLine("Please enter valid Username");
+            if (cboStatus.SelectedIndex == 0) sb.AppendLine("Please select Status");           
             
             //System.Text.RegularExpressions.Regex r1 = new System.Text.RegularExpressions.Regex("^[a-zA-Z0-9]*$");
             //System.Text.RegularExpressions.Regex r2 = new System.Text.RegularExpressions.Regex(@"^[\.a-zA-Z0-9,!? ]*$");
@@ -159,7 +164,7 @@ namespace accAfpslaiEmvUserRoleMgmt
             {
                 system_user user = new system_user();
                 user.id = userId;
-                user.user_name = txtUsername.Text;
+                user.user_name = txtUsername.Text.Replace(" ","");
                 user.first_name = txtFirst.Text;
                 user.middle_name = txtMiddle.Text;
                 user.last_name = txtLast.Text;
@@ -176,34 +181,45 @@ namespace accAfpslaiEmvUserRoleMgmt
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(grid.Rows[grid.CurrentRow.Index].Cells[0].Value.ToString().Trim());
-            string userName = grid.Rows[grid.CurrentRow.Index].Cells[1].Value.ToString().Trim();
-            if (MessageBox.Show("Are you sure you want to delete '" + userName + "'?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (!Convert.ToBoolean(grid.Rows[grid.CurrentRow.Index].Cells[10].Value))
             {
-                system_user user = new system_user();
-                user.id = id;
-                if (msa.addDeleteGenericTable(user, false)) BindGrid();
+                int id = Convert.ToInt32(grid.Rows[grid.CurrentRow.Index].Cells[0].Value.ToString().Trim());
+                string userName = grid.Rows[grid.CurrentRow.Index].Cells[1].Value.ToString().Trim();
+                if (MessageBox.Show("Are you sure you want to delete '" + userName + "'?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    system_user user = new system_user();
+                    user.id = id;
+                    if (msa.addDeleteGenericTable(user, false)) BindGrid();
+                }
             }
-        }       
+
+        }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
             if (formState == state.init)
             {
-                formState = state.edit;
-                userId = Convert.ToInt32(grid.Rows[grid.CurrentRow.Index].Cells[0].Value.ToString().Trim());
-                txtUsername.Text = grid.Rows[grid.CurrentRow.Index].Cells[1].Value.ToString().Trim();
-                txtFirst.Text = grid.Rows[grid.CurrentRow.Index].Cells[2].Value.ToString().Trim();
-                if (grid.Rows[grid.CurrentRow.Index].Cells[3].Value != null) txtMiddle.Text = grid.Rows[grid.CurrentRow.Index].Cells[3].Value.ToString().Trim();
-                txtLast.Text = grid.Rows[grid.CurrentRow.Index].Cells[4].Value.ToString().Trim();
-                if (grid.Rows[grid.CurrentRow.Index].Cells[5].Value != null) txtSuffix.Text = grid.Rows[grid.CurrentRow.Index].Cells[5].Value.ToString().Trim();
-                cboRole.SelectedIndex = cboRole.FindString(grid.Rows[grid.CurrentRow.Index].Cells[7].Value.ToString().Trim());
-                cboStatus.SelectedIndex = cboStatus.FindString(grid.Rows[grid.CurrentRow.Index].Cells[8].Value.ToString().Trim());
+                if (!Convert.ToBoolean(grid.Rows[grid.CurrentRow.Index].Cells[10].Value))
+                {
+                    formState = state.edit;
+                    userId = Convert.ToInt32(grid.Rows[grid.CurrentRow.Index].Cells[0].Value.ToString().Trim());
+                    txtUsername.Text = grid.Rows[grid.CurrentRow.Index].Cells[1].Value.ToString().Trim();
+                    txtUsername.ReadOnly = true;
+                    txtFirst.Text = grid.Rows[grid.CurrentRow.Index].Cells[2].Value.ToString().Trim();
+                    if (grid.Rows[grid.CurrentRow.Index].Cells[3].Value != null) txtMiddle.Text = grid.Rows[grid.CurrentRow.Index].Cells[3].Value.ToString().Trim();
+                    txtLast.Text = grid.Rows[grid.CurrentRow.Index].Cells[4].Value.ToString().Trim();
+                    if (grid.Rows[grid.CurrentRow.Index].Cells[5].Value != null) txtSuffix.Text = grid.Rows[grid.CurrentRow.Index].Cells[5].Value.ToString().Trim();
+                    cboRole.SelectedIndex = cboRole.FindString(grid.Rows[grid.CurrentRow.Index].Cells[7].Value.ToString().Trim());
+                    cboStatus.SelectedIndex = cboStatus.FindString(grid.Rows[grid.CurrentRow.Index].Cells[8].Value.ToString().Trim());
 
-                btnAdd.Text = "SAVE";
-                btnEdit.Text = "CANCEL";
-                btnDelete.Visible = false;
-                btnResetPass.Visible = false;
+                    btnAdd.Text = "SAVE";
+                    btnEdit.Text = "CANCEL";
+                    btnDelete.Visible = false;
+                    btnResetPass.Visible = false;
+                    btnReset.Visible = false;
+                    btnAdd.ImageIndex= -1;
+                    btnEdit.ImageIndex = -1;
+                }
             }
             else
             {
@@ -213,13 +229,16 @@ namespace accAfpslaiEmvUserRoleMgmt
 
         private void btnResetPass_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(grid.Rows[grid.CurrentRow.Index].Cells[0].Value.ToString().Trim());
-            string userName = grid.Rows[grid.CurrentRow.Index].Cells[1].Value.ToString().Trim();
-            if (MessageBox.Show("Are you sure you want to reset password of '" + userName + "'?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (!Convert.ToBoolean(grid.Rows[grid.CurrentRow.Index].Cells[10].Value))
             {
-                system_user user = new system_user();
-                user.id = id;
-                if (msa.resetUserPassword(user)) BindGrid();
+                int id = Convert.ToInt32(grid.Rows[grid.CurrentRow.Index].Cells[0].Value.ToString().Trim());
+                string userName = grid.Rows[grid.CurrentRow.Index].Cells[1].Value.ToString().Trim();
+                if (MessageBox.Show("Are you sure you want to reset password of '" + userName + "'?", this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    system_user user = new system_user();
+                    user.id = id;
+                    if (msa.resetUserPassword(user)) BindGrid();
+                }
             }
         }
 
@@ -242,6 +261,21 @@ namespace accAfpslaiEmvUserRoleMgmt
         {
             BindGrid();
             BindGrid2();
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            ResetForm();
+        }
+
+        private void txtUsername_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = (e.KeyChar == (char)Keys.Space);
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            msa.userLogOut(new system_user() { id = msa.dcsUser.userId, user_name = msa.dcsUser.userName });
         }
     }
 }

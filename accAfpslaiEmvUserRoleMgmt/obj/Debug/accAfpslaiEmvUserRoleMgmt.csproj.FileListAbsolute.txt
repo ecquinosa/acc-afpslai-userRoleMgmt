@@ -55,3 +55,8 @@ C:\Drive D\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\obj\Debug\accAfpsl
 C:\Drive D\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\obj\Debug\accAfpslaiEmvUserRoleMgmt.csproj.CopyComplete
 C:\Drive D\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\obj\Debug\accAfpslaiEmvUserRoleMgmt.exe
 C:\Drive D\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\obj\Debug\accAfpslaiEmvUserRoleMgmt.pdb
+D:\WORK\Projects\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\bin\Debug\System.Net.Http.Formatting.dll
+D:\WORK\Projects\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\bin\Debug\accAfpslaiEmvObjct.dll.config
+D:\WORK\Projects\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\bin\Debug\System.Net.Http.Formatting.xml
+D:\WORK\Projects\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\obj\Debug\accAfpslaiEmvUserRoleMgmt.csproj.SuggestedBindingRedirects.cache
+D:\WORK\Projects\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\obj\Debug\accAfpslaiEmvUserRoleMgmt.exe.config
