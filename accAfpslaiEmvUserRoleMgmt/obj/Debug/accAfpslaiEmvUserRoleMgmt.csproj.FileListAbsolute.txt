@@ -82,3 +82,4 @@ C:\EDEL\Projects\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\obj\Debug\ac
 C:\EDEL\Projects\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\obj\Debug\accAfpslaiEmvUserRoleMgmt.csproj.CopyComplete
 C:\EDEL\Projects\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\obj\Debug\accAfpslaiEmvUserRoleMgmt.exe
 C:\EDEL\Projects\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\obj\Debug\accAfpslaiEmvUserRoleMgmt.pdb
+C:\EDEL\Projects\acc-afpslai-userRoleMgmt\accAfpslaiEmvUserRoleMgmt\obj\Debug\accAfpslaiEmvUserRoleMgmt.csproj.AssemblyReference.cache

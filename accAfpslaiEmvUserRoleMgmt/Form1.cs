@@ -217,8 +217,8 @@ namespace accAfpslaiEmvUserRoleMgmt
                     btnDelete.Visible = false;
                     btnResetPass.Visible = false;
                     btnReset.Visible = false;
-                    btnAdd.ImageIndex= -1;
-                    btnEdit.ImageIndex = -1;
+                    btnAdd.ImageIndex= 2;
+                    btnEdit.ImageIndex = 3;
                 }
             }
             else

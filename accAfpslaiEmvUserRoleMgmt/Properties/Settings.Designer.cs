@@ -25,7 +25,7 @@ namespace accAfpslaiEmvUserRoleMgmt.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44348")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://10.130.66.12")]
         public string MiddleServerUrl {
             get {
                 return ((string)(this["MiddleServerUrl"]));

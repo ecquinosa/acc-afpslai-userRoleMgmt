@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="MiddleServerUrl" Type="System.String" Scope="User">
-      <Value Profile="(Default)">https://localhost:44348</Value>
+      <Value Profile="(Default)">http://10.130.66.12</Value>
     </Setting>
     <Setting Name="BranchIssue" Type="System.String" Scope="User">
       <Value Profile="(Default)">AGUINALDO</Value>
